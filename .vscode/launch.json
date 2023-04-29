@@ -5,6 +5,33 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "webpack watch dev",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "program": "${workspaceRoot}/src/server/server.ts",
+            "outFiles": [
+              "${workspaceRoot}/dist/server.js"
+            ],
+            "sourceMaps": true
+          },
+        {
+            "name": "Launch via NPM",
+            "request": "launch",
+            "runtimeArgs": [
+                "run-script",
+                "watch:server",
+            ],
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "trace":true,
+            "type": "node",
+            "sourceMaps": true,
+            "autoAttachChildProcesses": true,
+        },
+        {
             "type": "node", // debug Node.js
             "name": "Attach Node Debugger",
             "request": "attach", // only attach to existing, don't launch
