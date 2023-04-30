@@ -1,44 +1,26 @@
 {
-  "name": "photo-gallery",
+  "name": "typescript-express-tutorial",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:server.old": "tsc --project ./tsconfig.server.json --outDir ./dist",
-    "build:server": "webpack --config webpack.config.server.js",
-    "build:client": "webpack --config webpack.config.client.js",
-    "start.old": "node ./dist/server.js",
-    "start.x": "npm run watch:server & nodemon --watch dist dist/server.js",
-    "watch:server": "webpack --config webpack.config.server.watch.js"
-
+    "clean:old": "rm -rf dist && mkdir ./dist && cp -rf frontend-photo-gallery-client/build ./dist/client",
+    "build": "npm run clean:old && tsc",
+    "start": "node ./dist/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:bromix/typescript-express-tutorial.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/express": "^4.17.17",
-    "@types/node": "^18.15.11",
-    "@types/react": "^18.0.35",
-    "@types/react-dom": "^18.0.11",
-    "clean-webpack-plugin": "^4.0.0",
-    "copy-webpack-plugin": "^11.0.0",
-    "cross-spawn": "^7.0.3",
-    "nodemon": "^2.0.22",
-    "run-script-webpack-plugin": "^0.2.0",
-    "ts-loader": "^9.4.2",
-    "typescript": "^5.0.4",
-    "webpack": "^5.79.0",
-    "webpack-cli": "^5.0.1",
-    "webpack-manifest-plugin": "^5.0.0",
-    "webpack-node-externals": "^3.0.0"
+    "@types/express": "^4.17.13",
+    "typescript": "^4.3.5"
   },
   "dependencies": {
-    "@types/morgan": "^1.9.4",
-    "ejs": "^3.1.9",
-    "express": "^4.18.2",
-    "morgan": "^1.10.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "express": "^4.17.1"
   }
 }

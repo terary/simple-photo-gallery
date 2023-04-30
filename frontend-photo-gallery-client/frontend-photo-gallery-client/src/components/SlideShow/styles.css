@@ -1,0 +1,14 @@
+.FadeShow {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.slide-container {
+    background-color: black;
+    height: 100vh;
+}
+
+.each-fade {
+    margin-left: 10%;    
+}
+  

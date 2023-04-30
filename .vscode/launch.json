@@ -5,49 +5,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "webpack watch dev",
             "type": "node",
             "request": "launch",
-            "cwd": "${workspaceRoot}",
-            "program": "${workspaceRoot}/src/server/server.ts",
-            "outFiles": [
-              "${workspaceRoot}/dist/server.js"
-            ],
-            "sourceMaps": true
-          },
-        {
-            "name": "Launch via NPM",
-            "request": "launch",
-            "runtimeArgs": [
-                "run-script",
-                "watch:server",
-            ],
-            "runtimeExecutable": "npm",
+            "name": "Launch Server",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "trace":true,
-            "type": "node",
+            "program": "${workspaceFolder}/dist/server.js",
+            "preLaunchTask": "npm: build",
             "sourceMaps": true,
-            "autoAttachChildProcesses": true,
-        },
-        {
-            "type": "node", // debug Node.js
-            "name": "Attach Node Debugger",
-            "request": "attach", // only attach to existing, don't launch
-            "sourceMaps": true, // look for source maps
-            "restart": true, // restart when loosing connection due to re-compile
-            // look for source-maps based on our bundle result
-            "outFiles": ["${workspaceFolder}/dist/server.js"]
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch Program",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${workspaceFolder}/dev.js",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ]
