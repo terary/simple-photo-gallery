@@ -3,7 +3,7 @@ import path from 'path'
 
 const app = express();
 const IMAGE_DIRECTORY = '/mypart/tmc/projects/photo-gallery/images';
-type TImageItem = {
+type TImageEnvelope = {
   url:string,
   title?: string,
   id: string,
@@ -12,7 +12,7 @@ type TImageItem = {
     width: string;
   }
 }
-const images: {[imageId:string]: TImageItem} = {
+const images: {[imageId:string]: TImageEnvelope} = {
   '13' : {
     url: '/images/13',
     title: 'This is a tes',

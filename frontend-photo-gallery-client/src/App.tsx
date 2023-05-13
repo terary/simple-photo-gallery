@@ -1,24 +1,90 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { SlideShow, FadeShow } from './components/SlideShow';
+import * as React from "react";
+import {
+  HashRouter as Router,
+  BrowserRouter,
+  Route,
+  Link,
+  Routes,
+  useLocation,
+} from "react-router-dom";
+import { SlideShow, FadeShow } from "./components/SlideShow";
 
-const srUrls = [
-  'https://farm6.staticflickr.com/5229/5601598963_729a9185a2_z.jpg',
-  'https://www.aleenta.com/wp-content/uploads/2022/03/aleenta-Songkran_Water_Festival.jpg',
-  'https://upload.wikimedia.org/wikipedia/commons/0/0e/Varanasi%2C_India%2C_Ghats%2C_Cremation_ceremony_in_progress.jpg'
-]
+import { render } from "react-dom";
+// import {Home, Foo, Bar} from './Pages';
+// import "./style.css";
+import { SettingsPage } from "./components/settings/SettingsPage";
 
+// class App extends React.Component {
+//   render() {
+//     return (
+//       <Router>
+//         <div>
+//           <nav>
+//             <Link to="/">Home</Link>
+//             <Link to="/foo">Foo</Link>
+//             <Link to="/bar">Bar</Link>
+//           </nav>
+//           <Routes>
+//             <Route path="/" element={SettingsPage()} />
+//             <Route   path="/settings" element={SettingsPage()} />
+//             <Route path="/other" element={SettingsPage()} />
+//           </Routes>
+//         </div>
+//       </Router>
+//     );
+//   }
+// }
+const App = () => {
+  {
+    /* <BrowserRouter basename="/calendar">
+    <Link to="/today"/> // renders <a href="/calendar/today">
+    <Link to="/tomorrow"/> // renders <a href="/calendar/tomorrow">
+    ...
+</BrowserRouter> */
+  }
+  const TheBrowserRouter = () => {
+    return (
+      <BrowserRouter>
+        <div>
+          {window.location.pathname != "/" && (
+            <nav>
+              <Link to="/">Home</Link>
+              <Link to="/settings">Foo</Link>
+              <Link to="/settings">YO:{window.location.pathname}</Link>
+            </nav>
+          )}
+          <Routes>
+            <Route path="/" element={FadeShow()} />
+            <Route path="/settings" element={SettingsPage()} />
+            <Route path="/other" element={SettingsPage()} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    );
+  };
+  const TheRouter = () => {
+    return (
+      <Router>
+        <div>
+          <nav>
+            <Link to="/">Home</Link>
+            <Link to="/settings">Foo</Link>
+            <Link to="/settings">YO: {window.location.pathname}</Link>
+          </nav>
+          <Routes>
+            <Route path="/" element={FadeShow()} />
+            <Route path="/settings" element={SettingsPage()} />
+            <Route path="/other" element={SettingsPage()} />
+          </Routes>
+        </div>
+      </Router>
+    );
+  };
 
-
-function App() {
-
-  return (
-    // <SlideShow />
-    <FadeShow />
-    // <div className="App">
-    // </div>
-  );
-}
+  return <TheBrowserRouter />;
+  // return <TheRouter />;
+};
 
 export default App;
+
+// render(<App />, document.getElementById("root"));
