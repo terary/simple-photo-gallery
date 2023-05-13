@@ -1,16 +1,54 @@
 import express from "express";
 import path from 'path'
-const app = express();
 
+const app = express();
+const IMAGE_DIRECTORY = '/mypart/tmc/projects/photo-gallery/images';
+type TImageItem = {
+  url:string,
+  title?: string,
+  id: string,
+  dimensions?: {
+    height: string;
+    width: string;
+  }
+}
+const images: {[imageId:string]: TImageItem} = {
+  '13' : {
+    url: '/images/13',
+    title: 'This is a tes',
+    id: '13',
+    dimensions: {
+      height: '130px',
+      width: '125px'
+    }
+  }
+}
 app.use(express.static('./dist/client', {
   
 }
 ));
-
+ 
 app.get('/api', (req,res)=>{
-  res.send('Hello Worldy');
-
+  res.send('Hello World');
 })
+
+app.get('/api/echo', (req,res)=>{
+  const {body, query} = req;
+  res.send({
+    body, query
+  });
+})
+
+
+app.get('/api/imageEnvelope/random', (req,res)=>{
+
+  res.json({...images['13']})
+})
+
+app.get('/api/image/:imageId', (req,res)=>{
+  res.sendFile(path.join(IMAGE_DIRECTORY, 'middle-finger-kid.jpg'))
+})
+
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
