@@ -1,6 +1,11 @@
-import {ImageEnvelope} from './images/ImageEnvelope'
-
+import { ImageEnvelope } from "./images/ImageEnvelope";
+import AxiosCall from "../AxiosCall";
 export const SettingsPage = () => {
-
-    return(<ImageEnvelope />)
-}  
+  return (
+    <div>
+      AxiosCall
+      <AxiosCall />
+      <ImageEnvelope />
+    </div>
+  );
+};
