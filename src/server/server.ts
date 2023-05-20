@@ -34,7 +34,7 @@ type TImageEnvelope = {
 };
 const images: { [imageId: string]: TImageEnvelope } = {
   "13": {
-    url: "/images/13",
+    url: "/api/image/13",
     title: "This is a tes",
     id: "13",
     dimensions: {
@@ -62,6 +62,7 @@ app.get("/api/imageEnvelope/random", (req, res) => {
 });
 
 app.get("/api/image/:imageId", (req, res) => {
+  res.contentType("jpg");
   res.sendFile(path.join(IMAGE_DIRECTORY, "middle-finger-kid.jpg"));
 });
 

@@ -42,6 +42,7 @@ const App = () => {
     ...
 </BrowserRouter> */
   }
+
   const TheBrowserRouter = () => {
     return (
       <BrowserRouter>
@@ -82,9 +83,6 @@ const App = () => {
   };
 
   return <TheBrowserRouter />;
-  // return <TheRouter />;
 };
 
 export default App;
-
-// render(<App />, document.getElementById("root"));

@@ -5,7 +5,7 @@ export const SettingsPage = () => {
     <div>
       AxiosCall
       <AxiosCall />
-      <ImageEnvelope />
+      {/* <ImageEnvelope /> */}
     </div>
   );
 };
