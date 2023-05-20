@@ -2,16 +2,6 @@ import type { TImageEnvelope } from "./type";
 
 export const ImageEnvelope = (props: { imageEnvelope: TImageEnvelope }) => {
   const remoteHost = "http://localhost:3333";
-  // const imageEnvelope: TImageEnvelope = {
-  //   url: "/images/13",
-  //   title: "This is a tes",
-  //   id: "13",
-  //   dimensions: {
-  //     height: "130px",
-  //     width: "125px",
-  //   },
-  // };
-
   const { url, title, id, dimensions } = props.imageEnvelope;
   return (
     <table>
